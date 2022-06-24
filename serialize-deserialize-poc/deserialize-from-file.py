@@ -3,9 +3,11 @@ from base64 import b64decode
 
 
 def insecure_deserialize():
-    with open("user.pickle", "rb") as file:
-        user = pickle.load(file)
-        print("Full Name: %s and Country: %s" % (user['full_name'], user['country']))
+    pickle_file = "user.pickle"
+    with open(pickle_file, "rb") as file:
+        print("Deserializing %s" % pickle_file)
+        user = pickle.load(file)  # INSECURE!
+        print("First Name: %s and Last Name: %s" % (user['first_name'], user['last_name']))
 
 
 if __name__ == '__main__':

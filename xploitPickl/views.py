@@ -9,7 +9,6 @@ def index(request):
         first_name = request.POST.get("first_name")
         last_name = request.POST.get("last_name")
 
-        # user = User(first_name=first_name, last_name=last_name)
         user = {"first_name": first_name, "last_name": last_name}
         response = redirect('/xploitpickl/dashboard')
         user_encoded = b64encode(pickle.dumps(user))
@@ -24,9 +23,8 @@ def dashboard(request):
     try:
         if request.COOKIES.get('user'):
             user_cookie = request.COOKIES.get('user')
-            print("Cookie: %s" % user_cookie)
             user_cookie = b64decode(user_cookie)
-            user = pickle.loads(user_cookie, encoding='utf-8')
+            user = pickle.loads(user_cookie, encoding='utf-8')  # Warning: Insecure!
             context = {"app_user": user}
             return render(request, 'dashboard.html', context)
         else:

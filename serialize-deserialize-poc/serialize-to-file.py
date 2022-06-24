@@ -2,9 +2,13 @@ import pickle
 
 
 def just_serialize():
-    user = {"full_name": "Pavan Mohan", "country": "India"}
-    with open("user.pickle", "wb") as file:
-        pickle.dump(user, file)
+    pickle_file = "user.pickle"
+    character = {"first_name": "Tony", "last_name": "Stark"}
+    print("Pickling the below object:")
+    print(character)
+    with open(pickle_file, "wb") as file:
+        pickle.dump(character, file)
+    print("Pickled to: %s" % pickle_file)
 
 
 if __name__ == '__main__':

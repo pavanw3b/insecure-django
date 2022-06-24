@@ -8,8 +8,9 @@ class Exploit(object):
 
 
 def create_payload():
+    pickle_file = "user.pickle"
     payload = Exploit()
-    with open("user.pickle", "wb") as file:
+    with open(pickle_file, "wb") as file:
         pickle.dump(payload, file)
 
 

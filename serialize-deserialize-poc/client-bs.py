@@ -3,8 +3,8 @@ import pickle
 
 
 def just_serialize():
-    my_object = {"full_name": "Pavan Mohan", "country": "India"}
-    pickled_object = pickle.dumps(my_object)
+    character = {"first_name": "Bruce", "last_name": "Banner"}
+    pickled_object = pickle.dumps(character)
     pickled_object = b64encode(pickled_object)
     print(pickled_object.decode("utf-8"))
 

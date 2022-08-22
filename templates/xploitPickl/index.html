@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Home - xploitSSRF | Insecure Django{% endblock %}
+{% block title %}Login - xploitPickl | Insecure Django{% endblock %}
 {% block body %}
 
 <body class="bg-gradient-primary">
@@ -20,24 +20,26 @@
                                 <div class="p-5">
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Hey there!</h1>
-                                        <h2>Welcome to our app</h2>
+                                        <h2>Welcome to our blog</h2>
+                                        <p>Enter your name to get in.</p>
                                     </div>
-                                    {{ li_response_body }}
-                                    <form class="user" id="importForm" method="post" action="import">
+                                    <form class="user" id="loginForm" method="post">
                                         <div class="form-group">
-                                            <p>Provide your LinkdedIn Profile URL to import your details</p>
+                                            <input type="text" class="form-control form-control-user"
+                                                id="first_name" name="first_name"
+                                                placeholder="First Name" autocomplete="off">
                                         </div>
                                         <div class="form-group">
                                             <input type="text" class="form-control form-control-user"
-                                                id="li_url" name="li_url" placeholder="Your LinkedIn Profile URL" autocomplete="off">
+                                                id="last_name" name="last_name" placeholder="Last Name" autocomplete="off">
                                         </div>
                                         {% csrf_token %}
-                                        <a onclick="document.getElementById('importForm').submit()" class="btn btn-primary btn-user btn-block">
-                                            Import
+                                        <a onclick="document.getElementById('loginForm').submit()" class="btn btn-primary btn-user btn-block">
+                                            Get in
                                         </a>
                                     </form>
+
                                 </div>
-                                <p>We only support LinkedIn profile import based registration at the moment</p>
                             </div>
                         </div>
                     </div>

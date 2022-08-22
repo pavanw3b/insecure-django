@@ -16,9 +16,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 import xploitPickl.views
+from django.shortcuts import redirect
+from django.conf.urls.static import static
+from django.conf import settings
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('xploitpickl/', include('xploitPickl.urls')),
+    path('xploitSSRF/', include('xploitSSRF.urls')),
+    path('api', lambda request: redirect('xploitSSRF/api', permanent=True)),
     path('', xploitPickl.views.index)
 ]
+
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

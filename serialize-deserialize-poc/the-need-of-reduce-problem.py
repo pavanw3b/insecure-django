@@ -8,6 +8,6 @@ class MyClass(object):
 
 
 my_test = MyClass()
-saved_object = pickle.dumps(my_test)
+saved_object = pickle.dumps(my_test, )
 print(repr(saved_object))
 

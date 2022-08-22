@@ -5,5 +5,5 @@ from xploitPickl import views
 
 urlpatterns = [
     path('', views.index),
-    path('dashboard', views.dashboard)
+    path('dashboard', views.dashboard),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

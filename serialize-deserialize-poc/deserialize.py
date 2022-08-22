@@ -8,6 +8,8 @@ def just_deserialize():
     pickled_object = pickle.loads(content)
     print(" ---- The Object after deserialization ----")
     print(pickled_object)
+    print(type(pickled_object))
+    print(type(content))
 
 
 if __name__ == '__main__':

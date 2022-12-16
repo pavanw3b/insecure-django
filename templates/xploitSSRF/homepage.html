@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %}Dashboard - xploitPickl | Insecure Django{% endblock %}
+{% block title %}Homepage - xploitSSRF | Insecure Django{% endblock %}
 {% block body %}
 <body id="page-top">
 
@@ -15,7 +15,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">xploitPickl</div>
+                <div class="sidebar-brand-text mx-3">xploitSSRF</div>
             </a>
 
             <!-- Divider -->
@@ -25,9 +25,13 @@
             <li class="nav-item active">
                 <a class="nav-link" href="#">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Blog Home</span></a>
+                    <span>Reports</span></a>
             </li>
-
+            <li class="nav-item active">
+                <a class="nav-link" href="/xploitSSRF">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Logout</span></a>
+            </li>
             <!-- Divider -->
             <hr class="sidebar-divider">
 
@@ -113,7 +117,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">
-                                    {{ app_user.first_name }}
+                                    Hi {{ visitor_name }}
                                 </span>
                                 <img class="img-profile rounded-circle"
                                     src="{% static 'img/undraw_profile.svg' %}">
@@ -131,7 +135,7 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">The best blog on the internet!</h1>
+                    <h1 class="h3 mb-4 text-gray-800">The best application on the internet!</h1>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Neque convallis a cras semper auctor neque vitae tempus quam. Ut lectus arcu bibendum at varius vel pharetra vel turpis. Mattis aliquam faucibus purus in massa tempor nec. Est placerat in egestas erat imperdiet sed euismod nisi. Cras sed felis eget velit aliquet sagittis. Quam adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus urna. Tellus cras adipiscing enim eu turpis egestas pretium. Cras sed felis eget velit. At augue eget arcu dictum varius duis. Risus sed vulputate odio ut enim blandit. Sit amet massa vitae tortor condimentum lacinia quis vel eros. Quisque id diam vel quam. In est ante in nibh. Nisl suscipit adipiscing bibendum est ultricies integer quis. Id faucibus nisl tincidunt eget nullam non nisi. Ligula ullamcorper malesuada proin libero nunc.</p>
 
                     <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>

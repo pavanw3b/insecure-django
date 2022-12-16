@@ -15,29 +15,44 @@
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
                         <div class="row">
-                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                            <div class="col-lg-6 d-none d-lg-block bg-register-image"></div>
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Hey there!</h1>
                                         <h2>Welcome to our app</h2>
                                     </div>
-                                    {{ li_response_body }}
+                                    <p>
+                                    {% if status == "error" %}
+                                        Sorry. We couldn't parse the URL. We got the following response. <br />
+                                        {{ response }}
+                                    {% endif %}
+                                    </p>
+                                    
                                     <form class="user" id="importForm" method="post" action="import">
                                         <div class="form-group">
-                                            <p>Provide your LinkdedIn Profile URL to import your details</p>
+                                            <p>Provide your null.community profile URL to import your name</p>
                                         </div>
                                         <div class="form-group">
                                             <input type="text" class="form-control form-control-user"
-                                                id="li_url" name="li_url" placeholder="Your LinkedIn Profile URL" autocomplete="off">
+                                                id="profile_url" name="profile_url" placeholder="Your null.community profile URL" autocomplete="off" value="">
                                         </div>
                                         {% csrf_token %}
                                         <a onclick="document.getElementById('importForm').submit()" class="btn btn-primary btn-user btn-block">
                                             Import
                                         </a>
                                     </form>
+                                    <div class="text-center">We only support null.community profile import based registration at the moment</div>
+                                    <hr>
+
+                                    <div class="text-center">
+                                       <a class="small" href="/">Startpage</a> | <a class="small" href="/xploitpickl/">xploitPickl</a> | <a class="small" href="/xploitSSRF/">xploitSSRF</a>
+                                    </div>
+                                    <div class="text-center">
+                                        By <a href="https://pavanw3b.com">pavanw3b</a>
+                                    </div>
                                 </div>
-                                <p>We only support LinkedIn profile import based registration at the moment</p>
+                                
                             </div>
                         </div>
                     </div>

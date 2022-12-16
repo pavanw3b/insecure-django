@@ -4,6 +4,11 @@ import pickle
 from base64 import b64encode, b64decode
 
 
+
+def common_home(request):
+    return render(request, 'common-home.html')
+
+
 def index(request):
     if request.method == "POST":
         first_name = request.POST.get("first_name")

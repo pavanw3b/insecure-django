@@ -26,7 +26,7 @@ urlpatterns = [
     path('xploitpickl/', include('xploitPickl.urls')),
     path('xploitSSRF/', include('xploitSSRF.urls')),
     path('api', lambda request: redirect('xploitSSRF/api', permanent=True)),
-    path('', xploitPickl.views.index)
+    path('', xploitPickl.views.common_home)
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -3,6 +3,7 @@ from django.urls import path
 from django.conf import settings
 from xploitPickl import views
 
+
 urlpatterns = [
     path('', views.index),
     path('dashboard', views.dashboard),

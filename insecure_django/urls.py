@@ -26,7 +26,6 @@ urlpatterns = [
     path('xploitpickl/', include('xploitPickl.urls')),
     path('xploitSSRF/', include('xploitSSRF.urls')),
     path('api', lambda request: redirect('xploitSSRF/api', permanent=True)),
-    path('xploitSCC/', include('xploitSOP_CORS_CSRF.urls')),
     path('', xploitPickl.views.index)
 ]
 

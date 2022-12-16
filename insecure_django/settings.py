@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'xploitPickl',
-    'xploitSSRF'
+    'xploitSSRF',
+    'xploitSOP_CORS_CSRF'
 ]
 
 MIDDLEWARE = [

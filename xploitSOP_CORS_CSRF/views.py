@@ -226,3 +226,21 @@ def chg_pwd_null_origin(request):
 
 	else:
 		return HttpResponse("Only OPTIONS and POST methods are supported")
+
+
+def my_balance_permissive_cors(request):
+
+	if request.method == "GET":
+		response = HttpResponse("<p>Bank Account Balance: 1337,1337")
+		response["Access-Control-Allow-Origin"] = request.headers.get("Origin")
+		response["Access-Control-Allow-Headers"] = "content-type"
+		response["Access-Control-Allow-methods"] = "GET"
+		response["Access-Control-Allow-Credentials"] = "true"
+		return response
+		
+
+def my_balance_no_cors(request):
+	if request.method == "GET":
+		response = HttpResponse("<p>Bank Account Balance: 1337,1337")
+		
+		return response

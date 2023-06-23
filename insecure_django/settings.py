@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'xploitPickl',
     'xploitSSRF',
-    'xploitSOP_CORS_CSRF'
+    'xploitSOP_CORS_CSRF',
+    'xploitpp'
 ]
 
 MIDDLEWARE = [

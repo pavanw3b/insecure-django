@@ -1,23 +1,28 @@
-from django.shortcuts import render
-import subprocess
+from django.shortcuts import render, redirect
+import subprocess, json
+
 
 def index(request):
-	return render(request, 'ppindex.html')
+    return render(request, 'ppindex.html')
 
 
 def welcome(request):
-    class Employee:
+    class User:
         def __init__(self):
             pass
 
-
     if request.method == "POST":
-        name = request.POST.get("name")
+        user = User()
+        name = json.loads(request.POST.get('json'))
 
-        context = {"name": name}
+        merge(name, user)
+        subprocess.Popen('whoami', shell=True)
+
+        context = {"user": user}
         return render(request, 'ppwelcome.html', context)
 
-    return render(request, 'index.html')
+    return redirect('/xploitpp/')
+
 
 
 def merge(src, dst):

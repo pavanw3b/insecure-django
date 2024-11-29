@@ -3,8 +3,9 @@ import pickle
 
 class MyClass(object):
     def __init__(self, file_path="1337-msg.txt"):
-        self._file_name = file_path
-        self.some_file_opened = open(self._file_name, 'wb')
+        # Enter the code from 11.a
+        
+        print() # You may delete this line
 
 
 my_test = MyClass()

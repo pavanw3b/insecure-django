@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'xploitPickl',
     'xploitSSRF',
     'xploitSOP_CORS_CSRF',
-    'xploitpp'
+    'xploitpp',
+    'xploitAuthZ',
 ]
 
 MIDDLEWARE = [
@@ -139,3 +140,7 @@ STATICFILES_DIRS = (
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_REDIRECT_URL = '/xploitauthz/'
+LOGIN_URL = '/accounts/login/'
+LOGOUT_REDIRECT_URL = '/accounts/login/'

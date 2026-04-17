@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Delete Todo - xploitAuthZ{% endblock %}
+
+{% block body %}
+<body class="bg-gradient-primary">
+    <div class="container">
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-5">
+                <h1 class="h3 text-gray-800 mb-4">Delete Todo</h1>
+
+                <p>Are you sure you want to delete "<strong>{{ todo.title }}</strong>"?</p>
+
+                <form method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <a href="{% url 'todo_list' %}" class="btn btn-secondary">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}

@@ -6,7 +6,7 @@ from .forms import TodoForm
 
 @login_required
 def todo_list(request):
-    todos = Todo.objects.filter(user=request.user)
+    todos = Todo.objects.all()
     return render(request, 'xploitAuthZ/todo_list.html', {'todos': todos})
 
 

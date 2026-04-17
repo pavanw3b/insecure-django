@@ -3,15 +3,13 @@
 {% block title %}Logged Out{% endblock %}
 
 {% block body %}
-<body class="bg-gradient-primary">
-    <div class="container">
-        <div class="card o-hidden border-0 shadow-lg my-5">
-            <div class="card-body p-5">
-                <h1 class="h3 text-gray-800 mb-4">Logged Out</h1>
-                <p>You have been successfully logged out.</p>
-                <a href="{% url 'login' %}" class="btn btn-primary">Login again</a>
-            </div>
+<div class="container">
+    <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-5">
+            <h1 class="h3 text-gray-800 mb-4">Logged Out</h1>
+            <p>You have been successfully logged out.</p>
+            <a href="{% url 'login' %}" class="btn btn-primary">Login again</a>
         </div>
     </div>
-</body>
+</div>
 {% endblock %}
